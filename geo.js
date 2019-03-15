@@ -1,3 +1,4 @@
+
 'use strict'
 
 const apiKey ='AIzaSyAjfQM6G2-mOL0BWgN09S11d0U6906YGFM';
@@ -20,7 +21,6 @@ function getLatAndLon(query) {
   const queryString = formatQueryParams(params);
   const url = searchURL + '?' + queryString;
 
-  console.log(url);
 
   fetch(url)
   .then(response => {
@@ -32,7 +32,7 @@ function getLatAndLon(query) {
     // the results are passed to the searchForTrails function located in hike.js 
     .then(responseJson => searchForTrails(responseJson))
    .catch(err => {
-      $('#js-error-message').text(`Something went wrong: ${err.message}`);
+      $('#js-error-message').text(`Location not found. Please search City and State.`);
       });
 }
 
@@ -40,10 +40,11 @@ function watchForm() {
   $('form').submit(event => {
    event.preventDefault();
    const searchTerm = $('#js-search-term').val();
-   getLatAndLon(searchTerm);
+   $('#js-search-term').val('');
 
-   console.log(searchTerm);
+   getLatAndLon(searchTerm);
   });
 }
 
 $(watchForm);
+console.log('app loaded');

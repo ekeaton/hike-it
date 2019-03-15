@@ -10,7 +10,6 @@ function formatQueryParams(params) {
 }
 
 function displayResults(responseJson){
-  console.log(responseJson);
   // if there are previous results remove them
   $('#results-list').empty();
   // iterate through the array
@@ -18,20 +17,22 @@ function displayResults(responseJson){
     // for each hking object in the data array,
     //add a list item to the results 
     //list with the hikes name, location, star rating,
-      //summary, trail length, conditions, website URL and img
+      //trail length, website URL and img
   $('#results-list').append(
-    `<li><h3>${responseJson.trails[i].name}</h3>
-      <p>Location: ${responseJson.trails[i].location}</p>
-      <p>Star rating: ${responseJson.trails[i].stars}</p>
-      <p>Summary: ${responseJson.trails[i].summary}</p>
-      <p>Length: ${responseJson.trails[i].length} miles</p>
-      <p>Conditions: ${responseJson.trails[i].conditionDetails}</p>
-      <a href="${responseJson.trails[i].url}">${responseJson.trails[i].url}</a>
-      <img src="${responseJson.trails[i].imgMedium}" alt="image of trail">
-      </li>`
+        `<li role="listitem">
+          <div id="search-result" class="search-result">
+          <img class="hiking-image" src="${responseJson.trails[i].imgSqSmall}" alt="image of trail">
+          <h3 class="trail-name">${responseJson.trails[i].name}</h3>
+           <p class="trail-info">Location: ${responseJson.trails[i].location}</p>
+           <p class="trail-info">Star rating: ${responseJson.trails[i].stars}</p>
+            <p class="trail-info">Length: ${responseJson.trails[i].length} miles</p>
+
+           <button type="submit" class="trail-button"> <a href="${responseJson.trails[i].url}" target="_blank" class="trail-label-a">Link to trail</a></button>
+    
+				  </div>
+        </li>`
   )};
   //display the results
-  $('.js-start-search').remove(); 
   $('#results').removeClass('hidden');
 };
 
@@ -42,14 +43,13 @@ function searchForTrails(responseJson) {
     lat: responseJson.results[0].geometry.location.lat,
     lon: responseJson.results[0].geometry.location.lng,
     maxDistance: 100,
-    maxResults: 15,
+    maxResults: 10,
     minStars: 3,
     key: hikeApiKey
   };
   const queryString = formatQueryParams(params);
   const url = hikeSearchURL + '?' + queryString;
 
-  console.log(url)
 
   fetch(url)
   .then(response => {

@@ -1,23 +1,88 @@
+/*--- BASIC SETUP ---*/
+
 * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
   }
   
-  body {
-    font-family: 'Roboto', sans-serif;
+  html { 
+    color: #555;
+    font-family: 'lato', arial;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    background-color:rgb(226, 226, 226);
+    display:block;
   }
   
-  button, input[type="text"] {
-    padding: 5px;
-    margin: 10px;
+  /*--- HEADER ---*/
+  
+  header {
+     background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('https://i.imgur.com/BquPJTF.jpg');
+     background-size: cover;
+     background-position: center;
+     height: 100vh;
   }
   
-  button:hover {
+  .hero-text-box {
+    position:absolute;
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: calc(24px + (50 - 24) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+  }
+  
+  input[type=text] , .searchButton {
+    padding: 3px;
+    font-size: calc(18px + (22 - 18) * ((100vw - 300px) / (1600 - 300)));
+  }
+  
+  input[type=text] {
+    margin: 10px; 
+    width: auto; 
+  }
+  
+  .searchButton {
+    font-weight: 300;
+    background-color: #3498db;
+    border: none;
+    border-radius: 200px;
+    color: #fff;
+    margin: 3vh auto 1vh auto;
+    width: 120px;
+  }
+  
+  .searchButton:hover {
     cursor: pointer;
+    background-color: #144d73;
   }
   
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
+  .logo-col {
+    padding: 1.25em 0.95em 0;
+  }
+  
+  .logo {
+    height: 100px;
+    width: auto;
+  }
+  
+  .logo-text {
+    color: #fff;
+    margin-top: 6px;
+    font-weight: 400;
+    font-size: calc(22px + (32 - 22) * ((100vw - 300px) / (1600 - 300)));
   }
   
   .error-message {
@@ -27,3 +92,175 @@
   .hidden {
     display: none;
   }
+  
+  /*--- SEARCH-RESULTS ---*/
+  
+  main {
+   margin-top:30px;
+  }
+  
+  section {
+    display: block;
+      max-width: 500px;
+      min-width: 300px;
+      margin: 0 auto;
+  }
+  
+  a:hover {
+      cursor: pointer;
+  }
+  
+  .search-header {
+    font-weight: 300;
+    font-size: calc(25px + (45 - 25) * ((100vw - 300px) / (1600 - 300)));
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .search-header:after {
+    display: block;
+    height: 2px;
+    background-color:#3498db;
+    content: " ";
+    width: 200px; 
+    margin: 0 auto;
+    margin-top: 30px; 
+  }
+  
+  .search-result {
+      display: block;
+      position: relative;
+      height: auto;
+      width: 100%;
+      margin-top: 2vh;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 3px rgba(0,0,0,0.16);
+    transition: all 300ms cubic-bezier(.02, .01, .47, 1);
+      overflow: hidden;
+  }
+  
+  .search-result:hover {
+    box-shadow: 0 20px 20px rgba(0, 0, 0, .16);
+    transform: translate(0, -5px);
+    transition-delay: 0s !important;
+  }
+  
+  .trail-name {
+      display: block;
+      padding: 10px 0 0 10px;
+      color: #144d73;
+      font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+      font-weight: bold;
+    margin: 0;
+    margin-bottom:9px;
+    max-width: 75%;
+  }
+  
+  .trail-info {
+      position: relative;
+      margin: 0;
+    padding-left: 10px;
+      font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+  }
+  
+  
+  .hiking-image {
+    height: auto;
+    width: 35%;
+    float: right;
+  }
+  
+  .trail-button {
+    position: absolute;
+      bottom: 0px;
+      width: 150px;
+    border-radius: 20px;
+    background-color:#3498db;
+    margin: 10px 0 2px 5px;
+  }
+  
+  .trail-button:hover {
+    background-color: #144d73;
+  }
+  
+  .trail-label-a {
+      bottom: 0px;
+      width: 40%;
+    color: white;
+    padding: 2px 2% 2px 2%;
+    text-decoration: none;
+    border: none;
+  }
+  
+  p {
+    line-height: 145%;
+  }
+  
+  h3 {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 115%;
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+      padding: 0;
+  
+  }
+  
+  /* big tablet to 1200px (width smaller than the 1140px row*/
+  @media only screen and (max-width: 1200px) {
+    .hero-text-box {
+      width: 100%;
+      padding: 0 2%;
+    }
+  }
+    
+   /*small tablet to big tablet from 768px to 1023px*/
+  @media only screen and (max-width: 1023px) {
+    
+    .trail-button {
+    margin-left: 5px;
+  }
+  
+    .hiking-image {
+      height: auto;
+    }
+  
+    .trail-label-a {
+      font-size: 16px; 
+    }
+  
+  }
+  
+  /*small phones: from 0 to 480px */
+  @media only screen and (max-width: 480px) {
+      
+   .logo {
+     height: 70px;
+     width: auto;
+   }
+  
+  .trail-button {
+    position: unset;
+    margin-left: 5px;
+    padding: 0;
+   }
+  
+  .hiking-image {
+    height: auto;
+   }
+  
+  .trail-label-a {
+    font-size: 16px; 
+   }
+  
+  }
+  

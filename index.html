@@ -3,39 +3,43 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hike IT!</title>
     <meta name="description" content="Find hiking locations within a given area">
+    <link href="normalize.css" rel="stylesheet" type="text/css" />
     <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <header role="banner">
         <div class ="logo-col">
-        <a href="index.html">
-          <img class="logo" src="https://i.imgur.com/JAQZrYK.png" alt="hiking logo"/>
-        </a> 
+          <img class="logo" src="https://i.imgur.com/Oi0bLu7.png" alt="hiking logo"/>
+        <h2 class="logo-text">Hike IT!</h2>
         </div>
-    </header>
-    <main role="main">
-      <div class="container js-start-search">
-        <h1>Hike IT!</h1>
-        <h3>Looking for Adventure?</h3>
-        <form> 
-          <label for="searchTerm">Find trails within the area</label>
-            <input type="text" placeholder="city,state" name="searchTerm" id="js-search-term" required>
 
-            <button type="submit" class="searchButton">search</button>
+      <div class="hero-text-box js-start-search">
+        <h1>Get outside. Explore hiking trails. <br> Adventure awaits.</h1>
+
+        <form role="search"> 
+            <input type="text" placeholder=" City, State" name="searchTerm" id="js-search-term" required>
+
+            <button type="submit" class="searchButton">Explore</button>
         </form>
+
         <p id="js-error-message" class="error-message"></p>
        </div>
+      </header>
 
-        <section id="results" class="hidden">
-          <h2>Search results</h2>
-          <ul id="results-list">
-          </ul>
-        </section>
-      
+      <main role="main">
+        <section id="results" class="hidden" role="region">
+             <h2 class="search-header">Search results</h2>
+
+              <ul id="results-list" role="list">
+              </ul>
+
+        </section>    
       </main>
     <script src="geo.js"></script>
     <script src="hike.js"></script>
