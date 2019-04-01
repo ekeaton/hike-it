@@ -36,7 +36,7 @@ function displayResults(responseJson){
   $('#results').removeClass('hidden');
   document.querySelector('#results').scrollIntoView({ 
     behavior: 'smooth' 
-    )};
+    });
   };
 
 // using the responseJson results from googlemaps api searchForTrails takes the lat and lon to pass in as values to retrieve the data
